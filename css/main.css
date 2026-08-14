@@ -1,0 +1,119 @@
+/* 1. 전체 바디 배경색 설정 (표지 제외 전체 적용) */
+body {
+    background-color: #fffff4; /* 👈 요청하신 부드러운 #fffff4 색상 적용 */
+    color: #111;
+    overflow-x: hidden;
+}
+
+/* 2. 🎬 맨 위 표지 (Hero Section) */
+.hero-section {
+    width: 100%;
+    padding: 80px 20px;
+    /* 표지 영역만 독자적인 배경 그라디언트 유지 (아래 body 색상과 자연스럽게 연결됩니다) */
+    background: linear-gradient(180deg, rgba(255,220,240,0.4) 0%, rgba(220,255,230,0.3) 40%, #fffff4 100%);
+    text-align: center;
+}
+
+/* 3. 🎯 도형 이미지 안의 노란 원 영역 지정 */
+.works-image-wrapper {
+    position: relative; 
+    width: 100%;
+    max-width: 700px;   
+    margin: 0 auto;
+}
+
+.works-main-img {
+    width: 100%;
+    display: block;
+}
+
+/* 노란 원 위에 얹을 투명한 링크 버튼 스타일 */
+.circle-link {
+    position: absolute;
+    border-radius: 50%;
+    /* background-color: rgba(255, 240, 0, 0.4); */ /* 👈 원 위치 맞출 때 이 주석을 풀어서 확인하세요! */
+    background-color: transparent; 
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.circle-link:hover {
+    transform: scale(1.1); 
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+/* 📍 시안 속 노란 원 위치 좌표 (% 값으로 정밀 조절) */
+.link-project-01 {
+    width: 12%;      
+    height: 12%;     
+    top: 45%;        
+    left: 25%;       
+}
+
+.link-project-02 {
+    width: 12%;
+    height: 12%;
+    top: 45%;
+    left: 55%;
+}
+
+/* 4. 📂 새로 이동할 'Work 섹션' 스타일링 */
+.work-display-section {
+    width: 100%;
+    /* 부모 body 배경색(#fffff4)이 그대로 투과되도록 투명하게 두거나 명시 */
+    background-color: #fffff4; 
+    padding: 120px 20px;
+    margin-top: 80px;
+    border-top: 1px solid #eaeae0;
+}
+
+.work-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.work-section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+/* 작업 중인 구역을 나타낼 임시 플레이스홀더 박스 */
+.work-placeholder-box {
+    width: 100%;
+    height: 400px;
+    background-color: #fff; /* 점선 박스 내부는 깔끔하게 흰색 처리 */
+    border: 2px dashed #ccc; 
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    font-size: 1.1rem;
+}
+
+/* ✨ 부드러운 스크롤 효과 */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* 1. 회전 애니메이션의 핵심 동작 정의 */
+@keyframes rotateSphereY {
+  0% {
+    /* 애니메이션 시작: 0도에서 시작 */
+    transform: rotateY(0deg);
+  }
+  100% {
+    /* 애니메이션 끝: 한 바퀴(360도)를 돌아 다시 원래대로 */
+    transform: rotateY(360deg);
+  }
+}
+
+/* 2. 빨간 구(sphere) 요소에 애니메이션을 적용하는 클래스 */
+/* (기본 디자인 클래스명 뒤에, 또는 클래스를 추가로 선언하여 붙이세요) */
+.animated-sphere {
+  /* 애니메이션 적용 */
+  animation: rotateSphereY 8s linear infinite; /* 8초 동안, 일정하게, 무한 반복 */
+}
